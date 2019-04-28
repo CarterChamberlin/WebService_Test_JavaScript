@@ -20,10 +20,12 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
     "esm": "^3.2.22",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "sqlite": "^3.0.3",
+    "uuid": "^3.3.2",
     "yup": "^0.27.0"
   },
   "devDependencies": {

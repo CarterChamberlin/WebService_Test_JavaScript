@@ -3,7 +3,8 @@
 
 {{#if user}}
 <form method='POST' action='/message'>
-  <input type='text' name='author' placeholder="Author" />
+  {{!-- <input type='text' name='author' placeholder="Author" /> --}}
+  {{user.name}}: 
   <input type='text' name='message' placeholder="Message">
   <button type="submit">Submit</button>
 </form>
