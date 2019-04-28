@@ -1,20 +1,18 @@
 import express from "express";
-import path from "path";
 import bodyParser from "body-parser";
 import expHandle from "express-handlebars";
 import sqlite from "sqlite";
+import authRouter from "./auth";
 
 const app = express();
 
-const dbPromise = sqlite.open("./database.sqlite");
+export const dbPromise = sqlite.open("./database.sqlite");
 
 dbPromise.then(async db => {
-  db.run(
-    "CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY, author STRING, message STRING);"
-  );
+  db.migrate({ force: "last" });
 });
 
-app.engine("handlebars", expHandle());
+app.engine("handlebars", expHandle({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,5 +33,7 @@ app.post("/message", async (req, res) => {
   );
   res.redirect("/");
 });
+
+app.use(authRouter);
 
 app.listen(8080, () => console.log("Listening on http://localhost:8080"));

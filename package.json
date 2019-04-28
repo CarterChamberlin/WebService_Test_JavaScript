@@ -2,10 +2,9 @@
   "name": "webservice_test_javascript",
   "version": "1.0.0",
   "description": "Test web service in JS.",
-  "main": "index.js",
-  "module": "main.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node -r esm index.js",
+    "start": "nodemon -r esm src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,10 +18,15 @@
   },
   "homepage": "https://github.com/CarterChamberlin/WebService_Test_JavaScript#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "esm": "^3.2.22",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
-    "sqlite": "^3.0.3"
+    "sqlite": "^3.0.3",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }

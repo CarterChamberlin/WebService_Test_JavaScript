@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>It is an app</h1>
-    <ul>
-        {{#each messages}}
-        <li>{{author}}: {{message}}</li>
-        {{/each}}
-    </ul>
-    <form method='POST' action='/message'>
-        <input type='text' name='author' placeholder="Author"/>
-        <input type='text' name='message' placeholder="Message">
-        <button type="submit">Submit?</button>
-    </form>
-</body>
-</html>
+<h1>It is an app</h1>
+
+
+{{#if user}}
+<form method='POST' action='/message'>
+  <input type='text' name='author' placeholder="Author" />
+  <input type='text' name='message' placeholder="Message">
+  <button type="submit">Submit</button>
+</form>
+{{else}}
+<a href="/register">Sign Up</a>
+<a href="/login">Login</a>
+{{/if}}
+<ul>
+  {{#each messages}}
+  <li>{{author}}: {{message}}</li>
+  {{/each}}
+</ul>
